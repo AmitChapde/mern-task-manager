@@ -3,7 +3,7 @@ const ApiError = require("../utils/ApiError");
 
 const getTasks = async (userId, query) => {
   const page = Math.max(Number(query.page) || 1, 1);
-  const limit = Math.min(Math.max(Number(query.limit) || 6, 1), 50);
+  const limit = Math.min(Math.max(Number(query.limit) || 3, 1), 50);
   const skip = (page - 1) * limit;
 
   const filters = { owner: userId };
