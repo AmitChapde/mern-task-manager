@@ -1,0 +1,107 @@
+.taskCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: none;
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+}
+
+.taskCardHeader {
+  align-items: start;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.taskCard h3,
+.taskCard p {
+  margin: 0;
+}
+
+.taskCard p {
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.priority {
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 900;
+  padding: 7px 10px;
+  text-transform: uppercase;
+}
+
+.priorityLow {
+  background: rgba(15, 159, 110, 0.12);
+  color: var(--success);
+}
+
+.priorityMedium {
+  background: rgba(183, 121, 31, 0.12);
+  color: var(--warning);
+}
+
+.priorityHigh {
+  background: rgba(220, 38, 38, 0.12);
+  color: var(--danger);
+}
+
+.taskMeta {
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.92rem;
+  gap: 12px;
+}
+
+.taskActions {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.taskActions select {
+  max-width: 170px;
+}
+
+.ghostButton,
+.dangerButton {
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  display: inline-flex;
+  justify-content: center;
+  font-weight: 800;
+  min-height: 40px;
+  padding: 9px 14px;
+}
+
+.ghostButton {
+  background: var(--surface-alt);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.dangerButton {
+  background: rgba(220, 38, 38, 0.1);
+  color: var(--danger);
+}
+
+@media (max-width: 560px) {
+  .taskCardHeader {
+    grid-template-columns: 1fr;
+  }
+
+  .taskCardHeader,
+  .taskActions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .taskActions select {
+    max-width: none;
+  }
+}

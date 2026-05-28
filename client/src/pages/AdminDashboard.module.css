@@ -1,0 +1,116 @@
+.adminPanelTitle {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+}
+
+.adminPanelTitle h2 {
+  margin: 0;
+}
+
+.adminToolbar {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.viewTabs {
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+}
+
+.viewTabs button {
+  align-items: center;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  color: var(--muted);
+  display: inline-flex;
+  font-weight: 800;
+  gap: 7px;
+  min-height: 36px;
+  padding: 8px 11px;
+}
+
+.viewTabs .activeTab {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.dangerButton {
+  align-items: center;
+  background: rgba(220, 38, 38, 0.1);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: var(--danger);
+  display: inline-flex;
+  justify-content: center;
+  font-weight: 800;
+  min-height: 40px;
+  padding: 9px 14px;
+}
+
+.iconTextButton {
+  gap: 8px;
+}
+
+.userList {
+  display: grid;
+  gap: 14px;
+}
+
+.userRow {
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: minmax(180px, 1fr) minmax(240px, 1.4fr) auto;
+  padding: 18px;
+}
+
+.userRow h3,
+.userRow p {
+  margin: 0;
+}
+
+.userRow p {
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.userMeta {
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.92rem;
+  gap: 12px;
+}
+
+@media (max-width: 760px) {
+  .adminToolbar,
+  .userRow {
+    align-items: stretch;
+    grid-template-columns: 1fr;
+  }
+
+  .adminToolbar {
+    flex-direction: column;
+  }
+
+  .viewTabs {
+    width: 100%;
+  }
+
+  .viewTabs button {
+    flex: 1;
+    justify-content: center;
+  }
+}

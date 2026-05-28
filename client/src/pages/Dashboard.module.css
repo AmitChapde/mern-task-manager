@@ -1,0 +1,145 @@
+.dashboard {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 68px);
+  margin: 0 auto;
+  max-width: 1220px;
+  overflow: hidden;
+  padding: 32px;
+  width: 100%;
+}
+
+.dashboardHeader {
+  align-items: end;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  color: var(--primary);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.stats span {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+  font-weight: 800;
+  padding: 9px 12px;
+}
+
+.dashboardGrid {
+  align-items: start;
+  display: grid;
+  flex: 1;
+  gap: 24px;
+  grid-template-columns: minmax(280px, 360px) 1fr;
+  min-height: 0;
+}
+
+.panel,
+.taskPanel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+
+.panel {
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.dashboard h1,
+.panel h2 {
+  margin: 0;
+}
+
+.taskPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.taskToolbar {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: minmax(220px, 1fr) auto;
+}
+
+.taskList {
+  display: grid;
+  gap: 14px;
+}
+
+.taskListViewport {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.errorText {
+  background: rgba(220, 38, 38, 0.1);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  border-radius: 8px;
+  color: var(--danger);
+  margin: 0;
+  padding: 10px 12px;
+}
+
+.emptyState {
+  background: var(--surface-alt);
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  color: var(--muted);
+  margin: 0;
+  padding: 28px;
+  text-align: center;
+}
+
+@media (max-width: 860px) {
+  .dashboardHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .dashboard {
+    height: auto;
+    min-height: calc(100vh - 68px);
+    overflow: visible;
+    padding: 20px;
+  }
+
+  .dashboardGrid,
+  .taskToolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .taskPanel {
+    height: auto;
+    overflow: visible;
+  }
+
+  .taskListViewport {
+    max-height: 60vh;
+  }
+}
