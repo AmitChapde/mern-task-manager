@@ -22,7 +22,8 @@ const Login = () => {
     try {
       const user = await login(form);
       const requestedPath = location.state?.from?.pathname;
-      const nextPath = requestedPath || (user.role?.toLowerCase() === "admin" ? "/admin" : "/");
+      const isAdmin = user.role?.toLowerCase() === "admin";
+      const nextPath = isAdmin ? "/admin" : requestedPath || "/";
 
       navigate(nextPath, { replace: true });
     } catch (err) {
