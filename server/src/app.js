@@ -8,7 +8,25 @@ const { notFound, errorHandler } = require("./middleware/error.middleware");
 
 const app = express();
 
-app.use(cors({ origin: process.env.CLIENT_URL || "http://localhost:5173" }));
+const normalizeOrigin = (origin) => origin.replace(/\/$/, "");
+
+const allowedOrigins = (process.env.CLIENT_URL || "http://localhost:5173")
+  .split(",")
+  .map((origin) => normalizeOrigin(origin.trim()))
+  .filter(Boolean);
+
+app.use(
+  cors({
+    origin(origin, callback) {
+      if (!origin || allowedOrigins.includes(normalizeOrigin(origin))) {
+        return callback(null, true);
+      }
+
+      return callback(new Error("Not allowed by CORS"));
+    },
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 if (process.env.NODE_ENV !== "production") {
